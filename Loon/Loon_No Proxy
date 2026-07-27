@@ -1,0 +1,198 @@
+# 适用于Loon 3.2.3(755) + 版本的配置文件
+# 2026年06月19日 03:36 UTC/GMT +8
+
+[General]
+# 是否禁用stun协议的udp数据，禁用后可以有效解决webrtc的ip泄露
+disable-stun = true
+
+# IP 请求模式
+## ipv4-only：仅请求 IPv4；dual：并发请求 IPv4&IPv6；ipv4-Preferred：优先请求 IPv4；ipv6-Preferred：优先请求 IPv6
+ip-mode = dual
+
+# 网络接口
+interface-mode = auto
+
+# 策略切换时关闭连接
+disconnect-on-policy-change = false
+
+# 域名拦截行为
+domain-reject-mode = DNS
+
+# DNS 拒绝行为
+dns-reject-mode = LOOPBACKIP
+
+# UDP 回落策略
+udp-fallback-mode = REJECT
+
+# 跳过某个域名或者IP段
+skip-proxy = localhost,*.local,captive.apple.com,e.crashlytics.com,www.baidu.com,passenger.t3go.cn,yunbusiness.ccb.com,wxh.wo.cn,gate.lagou.com,www.abchina.com.cn,login-service.mobile-bank.psbc.com,mobile-bank.psbc.com,10.0.0.0/8,127.0.0.1/32,172.16.0.0/12,192.168.0.0/16,192.168.122.1/32,193.168.0.1/32,::1/128,fe80::/10
+bypass-tun = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.18.0.0/15,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,255.255.255.255/32
+
+# DNS 服务器，如果只在中国大陆境内使用，推荐删除 1.0.0.1 和 8.8.8.8 两个 DNS,system为系统代理
+dns-server = system
+
+# Wi-Fi 访问
+allow-udp-proxy = false
+allow-wifi-access = false
+wifi-access-http-port = 7222
+wifi-access-socks5-port = 7221
+
+# 网络测试
+internet-test-url = http://connect.rom.miui.com/generate_204
+# 节点延迟测试
+proxy-test-url = http://cp.cloudflare.com/generate_204
+# 默认节点超时时间（秒）
+test-timeout = 5
+
+# 指定 WiFi SSID 运行模式
+## 下方写法表示一般 WiFi 和移动蜂窝网络下为自动分流模式 (rule), 名为 Stick 的 WiFi 下为直连模式，名为 Stick-5G 的 WiFi 下为代理模式
+ssid-trigger = "default":rule, "cellular":rule,"Stick":DIRECT,"Stick-5G":PROXY
+
+# SNI 辅助规则匹配
+sni-sniffing = true
+
+# GEOIP 自定义
+geoip-url = https://github.com/Masaiki/GeoIP2-CN/raw/release/Country.mmdb
+
+# 自定义 ASN 数据库
+ipasn-url = https://raw.githubusercontent.com/Loyalsoldier/geoip/release/GeoLite2-ASN.mmdb
+
+# 解析器
+resource-parser = https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store.min.js
+
+# 使用真实 IP
+real-ip = *.lan,*.direct,cable.auth.com,*.msftconnecttest.com,*.msftncsi.com,network-test.debian.org,detectportal.firefox.com,resolver1.opendns.com,*.srv.nintendo.net,*.stun.playstation.net,xbox.*.microsoft.com,*.xboxlive.com,stun.*,global.turn.twilio.com,global.stun.twilio.com,app.yinxiang.com,injections.adguard.org,local.adguard.org,cable.auth.com,localhost.*.qq.com,localhost.*.weixin.qq.com,*.logon.battlenet.com.cn,*.logon.battle.net,*.blzstatic.cn,music.163.com,*.music.163.com,*.126.net,musicapi.taihe.com,music.taihe.com,songsearch.kugou.com,trackercdn.kugou.com,*.kuwo.cn,api-jooxtt.sanook.com,api.joox.com,joox.com,y.qq.com,*.y.qq.com,streamoc.music.tc.qq.com,mobileoc.music.tc.qq.com,isure.stream.qqmusic.qq.com,dl.stream.qqmusic.qq.com,aqqmusic.tc.qq.com,amobile.music.tc.qq.com,*.xiami.com,*.music.migu.cn,music.migu.cn,proxy.golang.org,*.mcdn.bilivideo.cn,*.cmpassport.com,id6.me,open.e.189.cn,opencloud.wostore.cn,id.mail.wo.cn,mdn.open.wo.cn,hmrz.wo.cn,nishub1.10010.com,enrichgw.10010.com,*.wosms.cn,*.jegotrip.com.cn,*.icitymobile.mobi,*.pingan.com.cn,*.cmbchina.com,*.10099.com.cn,*.microdone.cn,*.miwifi.com,pool.ntp.org,*.pool.ntp.org,ntp.*.com,time.*.com,ntp?.*.com,time?.*.com,time.*.gov,time.*.edu.cn,*.ntp.org.cn,PDC._msDCS.*.*,DC._msDCS.*.*,GC._msDCS.*.*
+
+[Proxy]
+# 内置 DIRECT、REJECT 策略，本地节点格式如下↓
+# 节点名称 = 协议，服务器地址，服务器端口，加密协议，密码
+
+[Remote Proxy]
+# 订阅节点，格式：别名 = 订阅 URL
+# 以 Dler Cloud 为例，Dler Cloud 用户将下面订阅链接的 XXXXXX 替换为自己的订阅 token 即可
+# 其他机场用户，注意修改别名（包括该配置文件下方所有 Dler Cloud 字样）
+# Dler Cloud = https://oics.net/api/v3/download.getFile/XXXXXX?protocols=ss2022&provider=loon&lv=2%7C3.avi,udp=default,block-quic=true,fast-open=default,vmess-aead=true,skip-cert-verify=default,enabled=true,flexible-sni=false,img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Dler.png
+# MESL = https://em.mesl.cloud/ems/get?token=XXXXXX&name=MESL,udp=true,block-quic=true,fast-open=default,vmess-aead=true,skip-cert-verify=true,enabled=true,flexible-sni=false,img-url=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/Twoandz9/MESL.png
+
+[Remote Filter]
+# 筛选订阅节点，筛选后的结果可加入到策略组中，目前支持三种筛选方式
+# NodeSelect: 使用在UI上选择的节点。
+# NameKeyword: 根据提供的关键词对订阅中所有节点的名称进行筛选，使用筛选后的节点。
+# NameRegex: 根据提供的正则表达式对订阅中所有节点的名称进行筛选，使用筛选后的节点。
+# 根据自己机场及想用的节点进行删改，如想过滤 “香港 IPLC”，请修改 FilterKey 为 “.*香港 IPLC”
+#HK = NameRegex, FilterKey = ".*(香港|Hong Kong|HK|hk)"
+#TW = NameRegex, FilterKey = ".*(台湾|Taiwan|TW|tw|台北)"
+#SG = NameRegex, FilterKey = ".*(新加坡|Singapore|SG|sg)"
+#JP = NameRegex, FilterKey = ".*(日本|Japan|JP|jp)"
+#KR = NameRegex, FilterKey = ".*(韩国|Korea|KR|kr)"
+#US = NameRegex, FilterKey = ".*(美国|United States|USA|usa)"
+
+[Proxy Group]
+# 必须策略
+AdBlock = select,REJECT,DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
+
+# SSID 策略，格式：别名 = ssid，默认 = 策略， 蜂窝 = 策略，ssid名称 = 策略
+#SSID = ssid, default = PROXY, cellular = PROXY, "Sophisticated" = DIRECT
+
+[Rule]
+# 本地规则
+# Type:DOMAIN-SUFFIX,DOMAIN,DOMAIN-KEYWORD,USER-AGENT,URL-REGEX,IP-CIDR
+
+FINAL,DIRECT
+
+[Remote Rule]
+# 订阅规则、策略
+# 直连和广告拦截
+# Dler-io广告拦截组(不更新)
+https://raw.githubusercontent.com/dler-io/Rules/main/Surge/Surge%203/Provider/Special.list, policy=DIRECT, tag=Special, enabled=false
+https://raw.githubusercontent.com/dler-io/Rules/main/Surge/Surge%203/Provider/AdBlock.list, policy=AdBlock, tag=AdBlock, enabled=false
+# AWAvenue广告拦截组
+https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Surge-RULE-SET.list, policy=AdBlock, tag=AdBlock(AWAvenue Ads Rule), enabled=true
+# fmz200广告拦截组
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Loon/rule/rejectAd.list, policy=AdBlock, tag=AdBlock(fmz200), enabled=true
+
+[Rewrite]
+# 重写规则
+
+[Host]
+# *.cloud-nodes.com = server:140.205.1.13
+# 可以指定以下四种模式：
+# 1. 指定域名使用对应的IP地址
+# 2. 将域名指向另一个域名
+# 3. 指定域名请求 DNS 时使用特定的 DNS 服务器，格式如下：
+## google.com = server:8.8.8.8
+## *.baidu.com = server:https://example.com/dns-query
+## *.testflight.apple.com = server:8.8.4.4
+# 4. 指定具体的 SSID 环境下使用特定的 DNS 服务器，格式如下：
+## ssid:Stick = server:system
+
+[Script]
+# 脚本
+# Display commodity historical price
+# > JD - api.m.jd.com
+http-response ^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig) script-path=https://raw.githubusercontent.com/zwf234/rules/master/js/jd_price.js, requires-body=true, timeout=10, tag=jd_price.js
+
+# > Taobao - trade-acs.m.taobao.com
+http-response ^http://amdc\.m\.taobao\.com/amdc/mobileDispatch script-path=https://raw.githubusercontent.com/zwf234/rules/master/js/tb_price.js, requires-body=true, timeout=10, tag=tb_price.js
+http-response ^https?://trade-acs\.m\.taobao\.com/gw/mtop\.taobao\.detail\.getdetail script-path=https://raw.githubusercontent.com/zwf234/rules/master/js/tb_price.js, requires-body=true, timeout=10, tag=tb_price.js
+
+# Display Netflix ratings - ios.prod.ftl.netflix.com
+http-request ^https?://ios\.prod\.ftl\.netflix\.com/iosui/user/.+path=%5B%22videos%22%2C%\d+%22%2C%22summary%22%5D script-path=https://raw.githubusercontent.com/yichahucha/surge/master/nf_rating.js, timeout=10, tag=nf_rating.js
+http-response ^https?://ios\.prod\.ftl\.netflix\.com/iosui/user/.+path=%5B%22videos%22%2C%\d+%22%2C%22summary%22%5D script-path=https://raw.githubusercontent.com/yichahucha/surge/master/nf_rating.js, requires-body=true, timeout=10, tag=nf_rating.js
+
+# Weibo - api.weibo.cn, mapi.weibo.com, *.uve.weibo.com
+http-response ^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua) script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_launch.js, requires-body=true, timeout=10, tag=wb_launch.js
+http-response ^https?://m?api\.weibo\.c(n|om)/2/(statuses/(unread|extend|positives/get|(friends|video)(/|_)(mix)?timeline)|stories/(video_stream|home_list)|(groups|fangle)/timeline|profile/statuses|comments/build_comments|photo/recommend_list|service/picfeed|searchall|cardlist|page|!/(photos/pic_recommend_status|live/media_homelist)|video/tiny_stream_video_list|photo/info) script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_ad.js, requires-body=true, timeout=10, tag=wb_ad.js
+
+[Plugin]
+# ======= 广告净化 ======= #
+https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, pin=true, enabled=true
+https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, pin=true, enabled=true
+https://rucu6.pages.dev/Plugins/webpage.lpx, policy=DIRECT, enabled=true
+https://rucu6.pages.dev/Plugins/myblockads.lpx, enabled=true
+https://github.com/fmz200/wool_scripts/raw/main/Loon/plugin/blockAds.plugin, policy=REJECT, enabled=true
+https://oics.net/download/oixcloud.sgmodule, img-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/06jichang/DlerCloud.png, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Remove_ads_by_keli.lpx, enabled=false
+https://kelee.one/Tool/Loon/Lpx/Zhihu_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/YouKu_Video_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/RedPaper_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/FleaMarket_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Weixin_external_links_unlock.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/WexinMiniPrograms_Remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/NeteaseCloudMusic_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/SF-Express_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/smzdm_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/SodaMusic_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/PinDuoDuo_remove_ads.lpx, enabled=false
+https://kelee.one/Tool/Loon/Lpx/KuGouYouth_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/CoolApk_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/JD_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/JD_Price.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/MrHema_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Umetrip_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Amap_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/TaobaoTravel_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/DiDi_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/ColorfulClouds_remove_ads.lpx, enabled=true
+https://raw.githubusercontent.com/ElyDemiurge/Loon-Plugins/main/bilibili/Lpx/bilibili_cleaner.lpx, tag=Bilibili, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_3.png, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Bilibili_remove_ads.lpx, enabled=false
+https://kelee.one/Tool/Loon/Lpx/BaiduNetDisk_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/BaiduMap_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/YouTube_remove_ads.lpx, enabled=true
+https://raw.githubusercontent.com/app2smile/rules/master/plugin/spotify.plugin, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Spotify_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/AppleWeatherEnhancer.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/12306_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/ZhuanZhuan_remove_ads.lpx, enabled=true
+https://raw.githubusercontent.com/GeQ1an/Rules/master/Loon/Rewrite/Rewrite.plugin, tag=Stick Rules for Rewrite, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Sub-Store.lpx, policy=DIRECT, enabled=true
+https://kelee.one/Tool/Loon/Lpx/BoxJs.lpx, policy=DIRECT, enabled=false
+
+[MITM]
+enable = true
+skip-server-cert-verify = true
+hostname = -buy.itunes.apple.com,www.google.*,api.m.jd.com,trade-acs.m.taobao.com,ios.prod.ftl.netflix.com,api.weibo.cn,mapi.weibo.com,*.uve.weibo.com
+# 请在正式使用前将其他已信任证书的 P12 及密码填入下方，并删掉 ca-p12 和 ca-passphrase 前的井号
+# 或者前往设置界面生成、安装并信任新证书
+# ca-p12 = 
+# ca-passphrase =
