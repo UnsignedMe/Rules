@@ -243,7 +243,7 @@ proxy-groups:
     filter: .*(美国|United States|USA|usa)
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 rules:
-  - RULE-SET,Tailscale,Taislcale
+  - RULE-SET,Tailscale,Tailscale
   - RULE-SET,AdBlock,AdBlock
   - RULE-SET,Special,DIRECT
   - RULE-SET,Netflix,Netflix
