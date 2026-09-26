@@ -1,5 +1,5 @@
 proxy-groups:
-  - name: Taislcale
+  - name: Tailscale
     type: select
     proxies:
       - DIRECT
