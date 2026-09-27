@@ -31,12 +31,13 @@ proxy-groups:
   - name: Outside
     type: select
     proxies:
+      - Auto
       - Hong Kong
-      - United States
-      - Korea
-      - Japan
-      - Singapore
       - Taiwan
+      - Singapore
+      - Japan
+      - Korea
+      - United States
       - DIRECT
     include-all: false
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
@@ -56,6 +57,9 @@ proxy-groups:
     proxies:
       - DIRECT
       - Outside
+      - United States
+      - Hong Kong
+      - Japan
     include-all: false
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
     include-all-proxies: false
@@ -63,8 +67,11 @@ proxy-groups:
   - name: Apple Push
     type: select
     proxies:
-      - Outside
       - DIRECT
+      - Outside
+      - United States
+      - Hong Kong
+      - Japan
     include-all: false
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_1.png
     include-all-proxies: false
@@ -73,13 +80,11 @@ proxy-groups:
     type: select
     proxies:
       - Outside
-      - Hong Kong
       - Taiwan
       - United States
       - Singapore
       - Japan
       - Korea
-      - DIRECT
     include-all: false
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/AI.png
     include-all-proxies: false
@@ -87,7 +92,7 @@ proxy-groups:
   - name: China Media
     type: select
     proxies:
-      - DIRECT
+      - Mainland
       - Outside
     include-all: false
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/DomesticMedia.png
@@ -97,7 +102,7 @@ proxy-groups:
     type: select
     proxies:
       - Outside
-      - DIRECT
+      - Mainland
     include-all: false
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/HKMTMedia.png
     include-all-proxies: false
@@ -106,7 +111,7 @@ proxy-groups:
     type: select
     proxies:
       - Outside
-      - DIRECT
+      - Mainland
     include-all: false
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ForeignMedia.png
     include-all-proxies: false
@@ -114,7 +119,7 @@ proxy-groups:
   - name: Netflix
     type: select
     proxies:
-      - Outside
+      - Global Media
       - United States
       - Taiwan
       - Singapore
@@ -125,7 +130,7 @@ proxy-groups:
   - name: YouTube
     type: select
     proxies:
-      - Outside
+      - Global Media
       - Hong Kong
       - Taiwan
       - United States
@@ -137,8 +142,11 @@ proxy-groups:
   - name: Spotify
     type: select
     proxies:
-      - Outside
-      - DIRECT
+      - Global Media
+      - Hong Kong
+      - Taiwan
+      - United States
+      - Japan
     include-all: false
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
     include-all-proxies: false
@@ -147,7 +155,9 @@ proxy-groups:
     type: select
     proxies:
       - Outside
-      - DIRECT
+      - Taiwan
+      - Singapore
+      - United States
     include-all: false
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram_X.png
     include-all-proxies: false
@@ -156,7 +166,9 @@ proxy-groups:
     type: select
     proxies:
       - Outside
-      - DIRECT
+      - Taiwan
+      - Singapore
+      - United States
     include-all: false
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
     include-all-proxies: false
@@ -164,14 +176,11 @@ proxy-groups:
   - name: Microsoft
     type: select
     proxies:
+      - DIRECT
       - Outside
       - Taiwan
-      - Hong Kong
       - Singapore
-      - Japan
-      - Korea
       - United States
-      - DIRECT
     include-all: false
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
     include-all-proxies: false
@@ -181,6 +190,9 @@ proxy-groups:
     proxies:
       - DIRECT
       - Outside
+      - Taiwan
+      - Singapore
+      - United States
     include-all: false
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/PayPal.png
     include-all-proxies: false
@@ -189,7 +201,12 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
-      - Outside
+      - Hong Kong
+      - Taiwan
+      - Singapore
+      - Japan
+      - Korea
+      - United States
     include-all: false
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
     include-all-proxies: false
@@ -198,6 +215,11 @@ proxy-groups:
     type: select
     proxies:
       - Outside
+      - Taiwan
+      - United States
+      - Singapore
+      - Japan
+      - Korea
       - DIRECT
     include-all: false
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok.png
@@ -212,7 +234,7 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
     include-all-proxies: false
     filter: ""
-  - name: Auto - UrlTest
+  - name: Auto
     type: url-test
     proxies: []
     url: http://cp.cloudflare.com/generate_204
