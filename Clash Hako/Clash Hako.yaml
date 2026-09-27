@@ -6,7 +6,7 @@ proxy-groups:
     include-all: true
     include-all-proxies: true
     filter: .*(Tailscale)
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Round_Robin.png
+    icon: https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/04ProxySoft/tailscale.png
   - name: AdBlock
     type: select
     proxies:
