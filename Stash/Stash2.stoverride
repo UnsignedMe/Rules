@@ -1,0 +1,724 @@
+name: Stash 配置转换
+desc: |-
+  使用此覆写会覆盖原配置对应字段的内容
+  作者: @Max
+  最后更新时间: 2026-9-27 20:30
+icon: https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/%24tash.png
+category: ⚙️ ▸ Config
+
+dns: #!replace
+  enable: true
+  enhanced-mode: fake-ip
+  nameserver:
+    - https://223.5.5.5/dns-query
+    - https://doh.pub/dns-query
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  proxy-server-nameserver:
+    - https://radar.rlose.com/api-query
+    - https://zone.rlose.com:39933/api-query
+  fake-ip-filter:
+    - +.stun.*.*
+    - +.stun.*.*.*
+    - +.stun.*.*.*.*
+    - +.stun.*.*.*.*.*
+    - '*.n.n.srv.nintendo.net'
+    - +.stun.playstation.net
+    - xbox.*.*.microsoft.com
+    - '*.*.xboxlive.com'
+    - '*.msftncsi.com'
+    - '*.msftconnecttest.com'
+    - '*.lan'
+    - '*.local'
+ 
+proxy-groups: #!replace
+
+  - name: Tailscale
+    type: select
+    proxies:
+      - DIRECT
+    include-all: true
+    include-all-proxies: true
+    filter: .*(Tailscale)
+    icon: https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/04ProxySoft/tailscale.png
+  - name: AdBlock
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
+    include-all: false
+    include-all-proxies: false
+    filter: ""
+  - name: Outside
+    type: select
+    proxies:
+      - Auto
+      - Hong Kong
+      - Taiwan
+      - Singapore
+      - Japan
+      - Korea
+      - United States
+      - DIRECT
+    include-all: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
+    include-all-proxies: false
+    filter: ""
+  - name: Mainland
+    type: select
+    proxies:
+      - DIRECT
+      - Outside
+    include-all: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Domestic.png
+    include-all-proxies: false
+    filter: ""
+  - name: Apple
+    type: select
+    proxies:
+      - DIRECT
+      - Outside
+      - United States
+      - Hong Kong
+      - Japan
+    include-all: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
+    include-all-proxies: false
+    filter: ""
+  - name: Apple Push
+    type: select
+    proxies:
+      - Outside
+      - United States
+      - Hong Kong
+      - Japan
+      - DIRECT
+    include-all: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_1.png
+    include-all-proxies: false
+    filter: ""
+  - name: AI Suite
+    type: select
+    proxies:
+      - Outside
+      - Taiwan
+      - United States
+      - Singapore
+      - Japan
+      - Korea
+    include-all: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/AI.png
+    include-all-proxies: false
+    filter: ""
+  - name: China Media
+    type: select
+    proxies:
+      - Mainland
+      - Outside
+    include-all: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/DomesticMedia.png
+    include-all-proxies: false
+    filter: ""
+  - name: Asian Media
+    type: select
+    proxies:
+      - Outside
+      - Mainland
+    include-all: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/HKMTMedia.png
+    include-all-proxies: false
+    filter: ""
+  - name: Global Media
+    type: select
+    proxies:
+      - Outside
+      - Mainland
+    include-all: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ForeignMedia.png
+    include-all-proxies: false
+    filter: ""
+  - name: Netflix
+    type: select
+    proxies:
+      - Global Media
+      - United States
+      - Taiwan
+      - Singapore
+    include-all: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
+    include-all-proxies: false
+    filter: ""
+  - name: YouTube
+    type: select
+    proxies:
+      - Global Media
+      - Hong Kong
+      - Taiwan
+      - United States
+      - Japan
+    include-all: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+    include-all-proxies: false
+    filter: ""
+  - name: Spotify
+    type: select
+    proxies:
+      - Global Media
+      - Hong Kong
+      - Taiwan
+      - United States
+      - Japan
+    include-all: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
+    include-all-proxies: false
+    filter: ""
+  - name: Telegram
+    type: select
+    proxies:
+      - Outside
+      - Taiwan
+      - Singapore
+      - United States
+    include-all: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram_X.png
+    include-all-proxies: false
+    filter: ""
+  - name: Google FCM
+    type: select
+    proxies:
+      - Outside
+      - Taiwan
+      - Singapore
+      - United States
+    include-all: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+    include-all-proxies: false
+    filter: ""
+  - name: Microsoft
+    type: select
+    proxies:
+      - DIRECT
+      - Outside
+      - Taiwan
+      - Singapore
+      - United States
+    include-all: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
+    include-all-proxies: false
+    filter: ""
+  - name: PayPal
+    type: select
+    proxies:
+      - DIRECT
+      - Outside
+      - Taiwan
+      - Singapore
+      - United States
+    include-all: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/PayPal.png
+    include-all-proxies: false
+    filter: ""
+  - name: Speedtest
+    type: select
+    proxies:
+      - DIRECT
+      - Hong Kong
+      - Taiwan
+      - Singapore
+      - Japan
+      - Korea
+      - United States
+    include-all: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
+    include-all-proxies: false
+    filter: ""
+  - name: TikTok
+    type: select
+    proxies:
+      - Outside
+      - Taiwan
+      - United States
+      - Singapore
+      - Japan
+      - Korea
+      - DIRECT
+    include-all: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok.png
+    include-all-proxies: false
+    filter: ""
+  - name: Others
+    type: select
+    proxies:
+      - Outside
+      - DIRECT
+    include-all: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+    include-all-proxies: false
+    filter: ""
+  - name: Auto
+    type: url-test
+    proxies: []
+    url: http://cp.cloudflare.com/generate_204
+    interval: 3600
+    include-all: true
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
+    include-all-proxies: true
+    filter: .*(香港|Hong Kong|HK|hk)
+  - name: Hong Kong
+    type: select
+    proxies: []
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+    include-all: true
+    include-all-proxies: true
+    filter: .*(香港|Hong Kong|HK|hk)
+  - name: Taiwan
+    type: select
+    proxies: []
+    include-all: true
+    include-all-proxies: true
+    filter: .*(台湾|Taiwan|TW|tw|台北)
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
+  - name: Singapore
+    type: select
+    proxies: []
+    include-all: true
+    include-all-proxies: true
+    filter: .*(新加坡|Singapore|SG|sg)
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+  - name: Japan
+    type: select
+    proxies: []
+    include-all: true
+    include-all-proxies: true
+    filter: .*(日本|Japan|JP|jp)
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+  - name: Korea
+    type: select
+    proxies: []
+    include-all: true
+    include-all-proxies: true
+    filter: .*(韩国|Korea|KR|kr)
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
+  - name: United States
+    type: select
+    proxies: []
+    include-all: true
+    include-all-proxies: true
+    filter: .*(美国|United States|USA|usa)
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+
+rule-providers: #!replace
+
+  Tailscale:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/UnsignedMe/Rules/main/Stash/Rules/Tailscale.yaml
+    path: ./Rules/Tailscale
+    interval: 86400
+  AdBlock:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/AdBlock.yaml
+    path: ./Rules/AdBlock
+    interval: 86400
+  Special:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Special.yaml
+    path: ./Rules/Special
+    interval: 86400
+  PROXY:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Proxy.yaml
+    path: ./Rules/Proxy
+    interval: 86400
+  Domestic:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Domestic.yaml
+    path: ./Rules/Domestic
+    interval: 86400
+  Domestic IPs:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Domestic%20IPs.yaml
+    path: ./Rules/Domestic_IPs
+    interval: 86400
+  LAN:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/LAN.yaml
+    path: ./Rules/LAN
+    interval: 86400
+  Netflix:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Netflix.yaml
+    path: ./Rules/Media/Netflix
+    interval: 86400
+  Spotify:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Spotify.yaml
+    path: ./Rules/Media/Spotify
+    interval: 86400
+  YouTube:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/YouTube.yaml
+    path: ./Rules/Media/YouTube
+    interval: 86400
+  Max:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Max.yaml
+    path: ./Rules/Media/Max
+    interval: 86400
+  Bilibili:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Bilibili.yaml
+    path: ./Rules/Media/Bilibili
+    interval: 86400
+  IQ:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/IQ.yaml
+    path: ./Rules/Media/IQI
+    interval: 86400
+  IQIYI:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/IQIYI.yaml
+    path: ./Rules/Media/IQYI
+    interval: 86400
+  Letv:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Letv.yaml
+    path: ./Rules/Media/Letv
+    interval: 86400
+  Netease Music:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Netease%20Music.yaml
+    path: ./Rules/Media/Netease_Music
+    interval: 86400
+  Tencent Video:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Tencent%20Video.yaml
+    path: ./Rules/Media/Tencent_Video
+    interval: 86400
+  Youku:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Youku.yaml
+    path: ./Rules/Media/Youku
+    interval: 86400
+  WeTV:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/WeTV.yaml
+    path: ./Rules/Media/WeTV
+    interval: 86400
+  ABC:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/ABC.yaml
+    path: ./Rules/Media/ABC
+    interval: 86400
+  Abema TV:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Abema%20TV.yaml
+    path: ./Rules/Media/Abema_TV
+    interval: 86400
+  Amazon:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Amazon.yaml
+    path: ./Rules/Media/Amazon
+    interval: 86400
+  Apple Music:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Apple%20Music.yaml
+    path: ./Rules/Media/Apple_Music
+    interval: 86400
+  Apple News:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Apple%20News.yaml
+    path: ./Rules/Media/Apple_News
+    interval: 86400
+  Apple TV:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Apple%20TV.yaml
+    path: ./Rules/Media/Apple_TV
+    interval: 86400
+  Bahamut:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Bahamut.yaml
+    path: ./Rules/Media/Bahamut
+    interval: 86400
+  BBC iPlayer:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/BBC%20iPlayer.yaml
+    path: ./Rules/Media/BBC_iPlayer
+    interval: 86400
+  DAZN:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/DAZN.yaml
+    path: ./Rules/Media/DAZN
+    interval: 86400
+  Discovery Plus:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Discovery%20Plus.yaml
+    path: ./Rules/Media/Discovery_Plus
+    interval: 86400
+  Disney Plus:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Disney%20Plus.yaml
+    path: ./Rules/Media/Disney_Plus
+    interval: 86400
+  DMM:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/DMM.yaml
+    path: ./Rules/Media/DMM
+    interval: 86400
+  encoreTVB:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/encoreTVB.yaml
+    path: ./Rules/Media/encoreTVB
+    interval: 86400
+  F1 TV:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/F1%20TV.yaml
+    path: ./Rules/Media/F1_TV
+    interval: 86400
+  Fox Now:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Fox%20Now.yaml
+    path: ./Rules/Media/Fox_Now
+    interval: 86400
+  Fox+:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Fox%2B.yaml
+    path: ./Rules/Media/Fox+
+    interval: 86400
+  Hulu Japan:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Hulu%20Japan.yaml
+    path: ./Rules/Media/Hulu_Japan
+    interval: 86400
+  Hulu:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Hulu.yaml
+    path: ./Rules/Media/Hulu
+    interval: 86400
+  Japonx:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Japonx.yaml
+    path: ./Rules/Media/Japonx
+    interval: 86400
+  JOOX:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/JOOX.yaml
+    path: ./Rules/Media/JOOX
+    interval: 86400
+  KKBOX:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/KKBOX.yaml
+    path: ./Rules/Media/KKBOX
+    interval: 86400
+  KKTV:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/KKTV.yaml
+    path: ./Rules/Media/KKTV
+    interval: 86400
+  Line TV:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Line%20TV.yaml
+    path: ./Rules/Media/Line_TV
+    interval: 86400
+  myTV SUPER:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/myTV%20SUPER.yaml
+    path: ./Rules/Media/myTV_SUPER
+    interval: 86400
+  Niconico:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Niconico.yaml
+    path: ./Rules/Media/Niconico
+    interval: 86400
+  Pandora:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Pandora.yaml
+    path: ./Rules/Media/Pandora
+    interval: 86400
+  PBS:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/PBS.yaml
+    path: ./Rules/Media/PBS
+    interval: 86400
+  Pornhub:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Pornhub.yaml
+    path: ./Rules/Media/Pornhub
+    interval: 86400
+  Soundcloud:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/Soundcloud.yaml
+    path: ./Rules/Media/Soundcloud
+    interval: 86400
+  ViuTV:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Media/ViuTV.yaml
+    path: ./Rules/Media/ViuTV
+    interval: 86400
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Telegram.yaml
+    path: ./Rules/Telegram
+    interval: 86400
+  TikTok:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/TikTok.yaml
+    path: ./Rules/TikTok
+    interval: 86400
+  Speedtest:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Speedtest.yaml
+    path: ./Rules/Speedtest
+    interval: 86400
+  PayPal:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/PayPal.yaml
+    path: ./Rules/PayPal
+    interval: 86400
+  Microsoft:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Microsoft.yaml
+    path: ./Rules/Microsoft
+    interval: 86400
+  AI Suite:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/AI%20Suite.yaml
+    path: ./Rules/AI Suite
+    interval: 86400
+  Apple:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Apple.yaml
+    path: ./Rules/Apple
+    interval: 86400
+  Apple Push:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Apple%20Push.yaml
+    path: ./Rules/Apple_Push
+    interval: 86400
+  Google FCM:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Google%20FCM.yaml
+    path: ./Rules/Google FCM
+    interval: 86400
+
+rules: #!replace
+
+  - RULE-SET,Tailscale,Tailscale
+  - RULE-SET,AdBlock,AdBlock
+  - RULE-SET,Special,DIRECT
+  - RULE-SET,Netflix,Netflix
+  - RULE-SET,YouTube,YouTube
+  - RULE-SET,Spotify,Spotify
+  - RULE-SET,Abema TV,Asian Media
+  - RULE-SET,Bahamut,Asian Media
+  - RULE-SET,DMM,Asian Media
+  - RULE-SET,Fox+,Asian Media
+  - RULE-SET,Hulu Japan,Asian Media
+  - RULE-SET,IQ,Asian Media
+  - RULE-SET,Japonx,Asian Media
+  - RULE-SET,JOOX,Asian Media
+  - RULE-SET,KKBOX,Asian Media
+  - RULE-SET,KKTV,Asian Media
+  - RULE-SET,Line TV,Asian Media
+  - RULE-SET,myTV SUPER,Asian Media
+  - RULE-SET,Niconico,Asian Media
+  - RULE-SET,ViuTV,Asian Media
+  - RULE-SET,ABC,Global Media
+  - RULE-SET,Amazon,Global Media
+  - RULE-SET,BBC iPlayer,Global Media
+  - RULE-SET,DAZN,Global Media
+  - RULE-SET,Discovery Plus,Global Media
+  - RULE-SET,Disney Plus,Global Media
+  - RULE-SET,encoreTVB,Global Media
+  - RULE-SET,F1 TV,Global Media
+  - RULE-SET,Fox Now,Global Media
+  - RULE-SET,Hulu,Global Media
+  - RULE-SET,Max,Global Media
+  - RULE-SET,Pandora,Global Media
+  - RULE-SET,PBS,Global Media
+  - RULE-SET,Pornhub,Global Media
+  - RULE-SET,Soundcloud,Global Media
+  - RULE-SET,Bilibili,China Media
+  - RULE-SET,IQIYI,China Media
+  - RULE-SET,Letv,China Media
+  - RULE-SET,Netease Music,China Media
+  - RULE-SET,Tencent Video,China Media
+  - RULE-SET,WeTV,China Media
+  - RULE-SET,Youku,China Media
+  - RULE-SET,Telegram,Telegram
+  - RULE-SET,Google FCM,Google FCM
+  - RULE-SET,Microsoft,Microsoft
+  - RULE-SET,AI Suite,AI Suite
+  - RULE-SET,PayPal,PayPal
+  - RULE-SET,Speedtest,Speedtest
+  - RULE-SET,TikTok,TikTok
+  - RULE-SET,Apple Music,Apple
+  - RULE-SET,Apple News,Apple
+  - RULE-SET,Apple TV,Apple
+  - RULE-SET,Apple,Apple
+  - RULE-SET,Apple Push,Apple Push
+  - RULE-SET,PROXY,Outside
+  - RULE-SET,Domestic,Mainland
+  - RULE-SET,Domestic IPs,Mainland
+  - RULE-SET,LAN,DIRECT
+  - GEOIP,CN,Mainland
+  - MATCH,Others
