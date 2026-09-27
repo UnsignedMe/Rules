@@ -67,11 +67,11 @@ proxy-groups:
   - name: Apple Push
     type: select
     proxies:
-      - DIRECT
       - Outside
       - United States
       - Hong Kong
       - Japan
+      - DIRECT
     include-all: false
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_1.png
     include-all-proxies: false
