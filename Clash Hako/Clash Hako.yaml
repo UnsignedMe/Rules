@@ -205,7 +205,7 @@ proxy-groups:
       - Singapore
       - DIRECT
     include-all: false
-    icon: car.circle
+    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/xiaomiCar.png
     include-all-proxies: false
     filter: ""
   - name: Speedtest
