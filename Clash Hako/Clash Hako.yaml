@@ -197,6 +197,17 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/PayPal.png
     include-all-proxies: false
     filter: ""
+  - name: Autoparts Retails
+    type: select
+    proxies:
+      - United States
+      - Taiwan
+      - Singapore
+      - DIRECT
+    include-all: false
+    icon: car.circle
+    include-all-proxies: false
+    filter: ""
   - name: Speedtest
     type: select
     proxies:
@@ -340,6 +351,7 @@ rules:
   - RULE-SET,Apple TV,Apple
   - RULE-SET,Apple,Apple
   - RULE-SET,Apple Push,Apple Push
+  - RULE-SET,Autoparts Retails,Autoparts Retails
   - RULE-SET,PROXY,Outside
   - RULE-SET,Domestic,Mainland
   - RULE-SET,Domestic IPs,Mainland
@@ -694,4 +706,10 @@ rule-providers:
     behavior: classical
     url: https://fastly.jsdelivr.net/gh/dler-io/Rules@main/Clash/Provider/Google%20FCM.yaml
     path: ./Rules/Google FCM
+    interval: 86400
+  Autoparts Retails:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/UnsignedMe/Rules/main/Stash/Rules/Autoparts%20Retails.yaml
+    path: ./Rules/Autoparts Retails
     interval: 86400
