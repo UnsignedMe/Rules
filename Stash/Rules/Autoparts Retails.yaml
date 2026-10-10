@@ -1,35 +1,35 @@
 # > Autoparts Company in US
 payload:
-# AutoZone
+ # AutoZone
  - DOMAIN-SUFFIX,autozone.com
 
-# Advance Auto Parts
+ # Advance Auto Parts
  - DOMAIN-SUFFIX,advanceautoparts.com
 
-# O'Reilly Auto Parts
+ # O'Reilly Auto Parts
  - DOMAIN-SUFFIX,oreillyauto.com
 
-# NAPA Auto Parts
+ # NAPA Auto Parts
  - DOMAIN-SUFFIX,napaonline.com
 
-# Summit Racing Equipment
+ # Summit Racing Equipment
  - DOMAIN-SUFFIX,summitracing.com
 
-# RockAuto
+ # RockAuto
  - DOMAIN-SUFFIX,rockauto.com
 
-# CarID
+ # CarID
  - DOMAIN-SUFFIX,carid.com
 
-# PartsGeek
+ # PartsGeek
  - DOMAIN-SUFFIX,partsgeek.com
 
-# JEGS
+ # JEGS
  - DOMAIN-SUFFIX,jegs.com
 
-# GM
+ # GM
  - DOMAIN-SUFFIX,gmparts.com
 
-# finditparts
+ # finditparts
  - DOMAIN-SUFFIX,finditparts.com
 
