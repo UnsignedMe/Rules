@@ -300,6 +300,7 @@ rules:
   - RULE-SET,Tailscale,Tailscale
   - RULE-SET,AdBlock,AdBlock
   - RULE-SET,Special,DIRECT
+  - RULE-SET,AI Suite,AI Suite
   - RULE-SET,Netflix,Netflix
   - RULE-SET,YouTube,YouTube
   - RULE-SET,Spotify,Spotify
@@ -342,15 +343,14 @@ rules:
   - RULE-SET,Telegram,Telegram
   - RULE-SET,Google FCM,Google FCM
   - RULE-SET,Microsoft,Microsoft
-  - RULE-SET,AI Suite,AI Suite
   - RULE-SET,PayPal,PayPal
   - RULE-SET,Speedtest,Speedtest
   - RULE-SET,TikTok,TikTok
+  - RULE-SET,Apple Push,Apple Push
   - RULE-SET,Apple Music,Apple
   - RULE-SET,Apple News,Apple
   - RULE-SET,Apple TV,Apple
   - RULE-SET,Apple,Apple
-  - RULE-SET,Apple Push,Apple Push
   - RULE-SET,Autoparts Retails,Autoparts Retails
   - RULE-SET,PROXY,Outside
   - RULE-SET,Domestic,Mainland
