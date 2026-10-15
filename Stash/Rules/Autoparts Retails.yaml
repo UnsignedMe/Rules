@@ -1,8 +1,5 @@
 # > Autoparts Company in US
 payload:
- # Tiqcdn
- - DOMAIN-SUFFIX,tiqcdn.com
- 
  # AutoZone
  - DOMAIN-SUFFIX,autozone.com
 
